@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikita Sharma — Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --cola: #9A0002;
+  --cola-deep: #6B0001;
+  --cola-mid: #B5181A;
+  --cola-light: #D4444644;
+  --vanilla: #EFE6DE;
+  --vanilla-dark: #E0D3C8;
+  --vanilla-deeper: #C9BAAC;
+  --ink: #1C0A0A;
+  --muted: #7A5C5C;
+  --rule: #C9BAAC;
+  --white: #FAF6F2;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--vanilla);
+  color: var(--ink);
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  cursor: default;
+}
+
+/* ── STICKY NAV ─── */
+.sticky-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--cola);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  height: 44px;
+  border-bottom: 1px solid var(--cola-deep);
+}
+.nav-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  color: var(--vanilla);
+  letter-spacing: 0.5px;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--vanilla-deeper);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--vanilla); }
+
+/* ── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 44px;
+}
+.hero-left {
+  background: var(--cola);
+  padding: 5rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(239,230,222,0.08);
+}
+.hero-left::after {
+  content: '';
+  position: absolute;
+  bottom: 60px; left: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(239,230,222,0.06);
+}
+.hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(239,230,222,0.5);
+  margin-bottom: 1.5rem;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 88px;
+  font-weight: 300;
+  line-height: 0.92;
+  color: var(--vanilla);
+  letter-spacing: -2px;
+}
+.hero-name em {
+  font-style: italic;
+  color: rgba(239,230,222,0.55);
+}
+.hero-role {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(239,230,222,0.6);
+  margin-top: 2rem;
+}
+.hero-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(239,230,222,0.3);
+  margin: 2rem 0;
+}
+.hero-quote {
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: rgba(239,230,222,0.75);
+  line-height: 1.5;
+  max-width: 320px;
+}
+.hero-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+.hero-link {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(239,230,222,0.5);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: color 0.2s;
+  padding: 0.4rem 0;
+  border-bottom: 0.5px solid rgba(239,230,222,0.1);
+}
+.hero-link:hover { color: var(--vanilla); }
+.hero-link-label {
+  width: 60px;
+  color: rgba(239,230,222,0.3);
+  flex-shrink: 0;
+}
+
+.hero-right {
+  background: var(--vanilla);
+  padding: 5rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-about-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cola);
+  margin-bottom: 2rem;
+}
+.hero-about {
+  font-family: 'EB Garamond', serif;
+  font-size: 22px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.hero-about em { color: var(--cola); font-style: italic; }
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin-top: 3rem;
+  border: 1px solid var(--rule);
+  background: var(--rule);
+}
+.stat-cell {
+  background: var(--vanilla);
+  padding: 1.2rem 1.5rem;
+}
+.stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--cola);
+  line-height: 1;
+  display: block;
+}
+.stat-desc {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 0.3rem;
+  letter-spacing: 0.5px;
+}
+
+/* Codolio badges strip */
+.codolio-strip {
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--vanilla-dark);
+  border-left: 3px solid var(--cola);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.codolio-left { display: flex; align-items: center; gap: 1rem; }
+.codolio-icon {
+  width: 36px; height: 36px;
+  background: var(--cola);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--vanilla);
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+.codolio-text {}
+.codolio-handle {
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.codolio-sub {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.codolio-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.cbadge {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  background: var(--cola);
+  color: var(--vanilla);
+  border-radius: 2px;
+}
+.cbadge.outline {
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+}
+.codolio-link {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cola);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cola);
+  padding-bottom: 1px;
+}
+
+/* ── SECTION COMMONS ─── */
+section { padding: 0; }
+.section-inner { max-width: 1400px; margin: 0 auto; }
+.sec-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cola);
+  font-weight: 500;
+}
+
+/* ── SECTION HEADER BAR ─── */
+.sec-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 4rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--vanilla-dark);
+}
+.sec-bar-right {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+/* ── PROJECTS ─── */
+#projects { background: var(--vanilla); }
+.projects-grid { padding: 0 4rem 4rem; }
+
+.project-row {
+  display: grid;
+  grid-template-columns: 48px 1fr 220px;
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.2s;
+}
+.project-row:hover { background: var(--vanilla-dark); }
+
+.proj-idx {
+  padding: 2rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--rule);
+  font-style: italic;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2.4rem;
+}
+.proj-main { padding: 2rem 2rem 2rem 1.5rem; }
+.proj-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+.proj-subtitle {
+  font-size: 11px;
+  color: var(--cola);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.proj-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 540px;
+  margin-bottom: 1rem;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  background: var(--vanilla-dark);
+  color: var(--muted);
+  border: 0.5px solid var(--rule);
+  border-radius: 1px;
+}
+.proj-aside {
+  padding: 2rem 1rem 2rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-left: 1px solid var(--rule);
+}
+.proj-metric {
+  text-align: right;
+}
+.proj-metric-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--cola);
+  display: block;
+  line-height: 1;
+}
+.proj-metric-label {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.proj-link-group { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.plink {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cola);
+  text-decoration: none;
+  border-bottom: 0.5px solid transparent;
+  padding-bottom: 1px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: border-color 0.2s;
+}
+.plink:hover { border-color: var(--cola); }
+.plink svg { width:9px; height:9px; stroke:currentColor; fill:none; stroke-width:2; }
+.plink.git { color: var(--muted); }
+.plink.git:hover { color: var(--cola); border-color: var(--cola); }
+
+/* ── SKILLS ─── */
+#skills { background: var(--white); }
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-top: 1px solid var(--rule);
+}
+.skill-col {
+  padding: 2.5rem 2.5rem;
+  border-right: 1px solid var(--rule);
+}
+.skill-col:last-child { border-right: none; }
+.skill-col-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--cola);
+  margin-bottom: 1rem;
+}
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 0.5px solid var(--vanilla-dark);
+  font-size: 12px;
+  color: var(--muted);
+}
+.skill-row:last-child { border-bottom: none; }
+.skill-tier {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--vanilla-deeper);
+}
+.skill-tier.primary { color: var(--cola); }
+
+/* ── CERTIFICATIONS ─── */
+#certifications { background: var(--vanilla); }
+.cert-list {
+  padding: 0 4rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border-top: 1px solid var(--rule);
+}
+.cert-card {
+  background: var(--vanilla);
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  transition: background 0.2s;
+}
+.cert-card:hover { background: var(--vanilla-dark); }
+.cert-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--rule);
+  font-style: italic;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 40px;
+}
+.cert-body {}
+.cert-issuer {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cola);
+  margin-bottom: 0.3rem;
+}
+.cert-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+.cert-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.cert-year {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--rule);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* ── EXPERIENCE ─── */
+#experience { background: var(--white); }
+.exp-list { padding: 0 4rem 4rem; border-top: 1px solid var(--rule); }
+.exp-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid var(--rule);
+  padding: 2rem 0;
+}
+.exp-row:last-child { border-bottom: none; }
+.exp-meta { padding-right: 3rem; }
+.exp-period {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.exp-org {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.exp-loc {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+.exp-role {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cola);
+  margin-top: 0.5rem;
+}
+.exp-body { padding-left: 2rem; border-left: 2px solid var(--vanilla-dark); }
+.exp-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.exp-body .work-images {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.work-img-placeholder {
+  width: 90px; height: 64px;
+  background: var(--vanilla-dark);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--vanilla-deeper);
+  text-align: center;
+  padding: 4px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.work-img-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px; height: 24px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.upload-note {
+  margin-top: 0.8rem;
+  font-size: 11px;
+  color: var(--vanilla-deeper);
+  font-style: italic;
+}
+
+/* ── DANCE ─── */
+#dance { background: var(--cola); }
+.dance-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+}
+.dance-text {
+  padding: 4rem;
+  border-right: 1px solid rgba(239,230,222,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dance-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(239,230,222,0.4);
+  margin-bottom: 2rem;
+}
+.dance-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 54px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--vanilla);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+.dance-body {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+  color: rgba(239,230,222,0.7);
+  line-height: 1.65;
+  max-width: 380px;
+}
+.dance-credentials {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.dance-cred {
+  display: flex;
+  gap: 1.2rem;
+  align-items: baseline;
+  font-size: 12px;
+  color: rgba(239,230,222,0.5);
+  border-bottom: 0.5px solid rgba(239,230,222,0.1);
+  padding-bottom: 0.6rem;
+}
+.dance-cred strong { color: rgba(239,230,222,0.85); font-weight: 400; }
+.dance-right {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dance-right-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(239,230,222,0.3);
+  margin-bottom: 1.5rem;
+}
+.dance-fact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(239,230,222,0.1);
+}
+.dance-fact {
+  background: rgba(154,0,2,0.4);
+  padding: 1.5rem;
+  backdrop-filter: none;
+}
+.dance-fact-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--vanilla);
+  display: block;
+  line-height: 1;
+}
+.dance-fact-desc {
+  font-size: 11px;
+  color: rgba(239,230,222,0.5);
+  letter-spacing: 0.5px;
+  margin-top: 0.3rem;
+}
+.dance-quote {
+  margin-top: 2rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: rgba(239,230,222,0.5);
+  line-height: 1.5;
+}
+
+/* ── CONTACT (sticky footer) ─── */
+#contact {
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  background: var(--ink);
+  border-top: 2px solid var(--cola);
+}
+.contact-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 4rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.contact-phrase {
+  font-family: 'EB Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(239,230,222,0.6);
+}
+.contact-phrase span { color: var(--vanilla); }
+.contact-pills {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.contact-pill {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  text-decoration: none;
+  border-radius: 1px;
+  transition: all 0.2s;
+}
+.contact-pill.primary {
+  background: var(--cola);
+  color: var(--vanilla);
+}
+.contact-pill.primary:hover { background: var(--cola-mid); }
+.contact-pill.ghost {
+  border: 1px solid rgba(239,230,222,0.2);
+  color: rgba(239,230,222,0.6);
+}
+.contact-pill.ghost:hover {
+  border-color: rgba(239,230,222,0.5);
+  color: var(--vanilla);
+}
+
+/* ── LEADERSHIP STRIP ─── */
+#leadership { background: var(--vanilla-dark); }
+.leadership-inner {
+  padding: 3rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.lead-item {
+  padding: 1.5rem;
+  background: var(--vanilla);
+  border-left: 3px solid var(--cola);
+}
+.lead-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.lead-org {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cola);
+  margin-bottom: 0.5rem;
+}
+.lead-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.lead-period {
+  font-size: 10px;
+  color: var(--rule);
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* smooth reveals */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <span class="nav-name">Nikita Sharma</span>
+  <ul class="nav-links">
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#dance">Dance</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div>
+      <div class="hero-eyebrow">Portfolio — 2026</div>
+      <div class="hero-name">Nikita<br><em>Sharma</em></div>
+      <div class="hero-role">M.Sc. Data Science · DA-IICT Gandhinagar</div>
+    </div>
+    <div>
+      <div class="hero-divider"></div>
+      <div class="hero-quote">A statistician by training,<br>an observer by habit.</div>
+      <div class="hero-links" style="margin-top:2rem;">
+        <a class="hero-link" href="https://github.com/nikitasharma1203" target="_blank">
+          <span class="hero-link-label">GitHub</span>
+          github.com/nikitasharma1203
+        </a>
+        <a class="hero-link" href="https://codolio.com/profile/Nikita_12" target="_blank">
+          <span class="hero-link-label">Codolio</span>
+          Nikita_12
+        </a>
+        <a class="hero-link" href="https://in.linkedin.com/in/nikita-sharma-8a7548394" target="_blank">
+          <span class="hero-link-label">LinkedIn</span>
+          nikita-sharma-8a7548394
+        </a>
+        <a class="hero-link" href="mailto:sniks12034@gmail.com">
+          <span class="hero-link-label">Email</span>
+          sniks12034@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-about-label">About</div>
+    <div class="hero-about">
+      I am currently pursuing an M.Sc. in Data Science at DA-IICT after completing a bachelor's degree in Statistics from MS University, Baroda.
+      <br><br>
+      What interests me most about data is that it offers a way to study human behaviour at scale. Whether the problem involves consumer decisions, forecasting demand, financial anomalies, or screen-time habits, I enjoy <em>understanding what sits beneath the numbers</em> rather than treating them as answers in themselves.
+      <br><br>
+      Outside academics, I have spent years studying Bharatanatyam and even more years reading. Literature taught me to pay attention to nuance; statistics taught me how to test whether those observations hold up. Somewhere between the two, I found data science.
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-cell">
+        <span class="stat-n">22M+</span>
+        <div class="stat-desc">BTS flight records processed</div>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">94%</span>
+        <div class="stat-desc">Fraud detection precision</div>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">8.2%</span>
+        <div class="stat-desc">Forecast MAPE (RetailIQ)</div>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-n">68</span>
+        <div class="stat-desc">Granger-causal airport pairs</div>
+      </div>
+    </div>
+
+    <!-- Codolio -->
+    <div class="codolio-strip">
+      <div class="codolio-left">
+        <div class="codolio-icon">N</div>
+        <div class="codolio-text">
+          <div class="codolio-handle">Nikita_12</div>
+          <div class="codolio-sub">Codolio Profile</div>
+        </div>
+      </div>
+      <div class="codolio-badges">
+        <span class="cbadge">5 Projects</span>
+        <span class="cbadge outline">Data Science</span>
+        <span class="cbadge outline">Python</span>
+      </div>
+      <a class="codolio-link" href="https://codolio.com/profile/Nikita_12" target="_blank">View Profile →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-bar">
+    <span class="sec-label">Selected Work</span>
+    <span class="sec-bar-right">Most of these began with curiosity rather than a requirement.</span>
+  </div>
+  <div class="projects-grid" style="padding-top:0;">
+  <div style="padding: 2.5rem 4rem 0; border-bottom: 1px solid var(--rule); margin-bottom: 0;">
+    <p style="font-family:'EB Garamond',serif; font-size:17px; color:var(--muted); line-height:1.7; max-width:640px; padding-bottom:2rem;">
+      Some started with a dataset that seemed too large to understand.<br>
+      Others started with a question that felt worth investigating.<br>
+      <span style="color:var(--vanilla-deeper);">The technical stack changes from project to project. The process rarely does.</span>
+    </p>
+  </div>
+
+    <!-- FinSentinel -->
+    <div class="project-row reveal">
+      <div class="proj-idx">01</div>
+      <div class="proj-main">
+        <div class="proj-subtitle">Financial Risk Intelligence</div>
+        <div class="proj-title">FinSentinel AI</div>
+        <div class="proj-desc">Real-time fraud detection on 500K+ transactions. XGBoost + Isolation Forest ensemble with SHAP-based explainability for compliance audit trails. Anomaly scoring API consumed by a React dashboard — feature engineering, scoring, and alert layers fully decoupled for zero-downtime retraining.</div>
+        <div class="tags">
+          <span class="tag">XGBoost</span><span class="tag">Isolation Forest</span><span class="tag">SHAP</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">AUC-PR</span><span class="tag">Class Imbalance</span>
+        </div>
+      </div>
+      <div class="proj-aside">
+        <div class="proj-metric">
+          <span class="proj-metric-n">94%</span>
+          <div class="proj-metric-label">Precision · sub-100ms</div>
+        </div>
+        <div class="proj-link-group">
+          <a class="plink" href="https://finsentinelai.netlify.app/" target="_blank">Live Demo <svg viewBox="0 0 12 12"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></a>
+          <a class="plink git" href="https://github.com/nikitasharma1203" target="_blank">GitHub <svg viewBox="0 0 12 12"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CartPulse -->
+    <div class="project-row reveal">
+      <div class="proj-idx">02</div>
+      <div class="proj-main">
+        <div class="proj-subtitle">eCommerce Behavioural Analytics</div>
+        <div class="proj-title">CartPulse</div>
+        <div class="proj-desc">Customer retention intelligence on 285M+ behavioural events. RFM segmentation and cohort retention curves identify high-churn segments. CLV prediction model segments 50K customers into value tiers. Firebase-backed pipeline with near-real-time dashboard.</div>
+        <div class="tags">
+          <span class="tag">RFM</span><span class="tag">CLV</span><span class="tag">Cohort Analysis</span><span class="tag">Firebase</span><span class="tag">React</span><span class="tag">Recharts</span>
+        </div>
+      </div>
+      <div class="proj-aside">
+        <div class="proj-metric">
+          <span class="proj-metric-n">285M+</span>
+          <div class="proj-metric-label">Events · 50K customers</div>
+        </div>
+        <div class="proj-link-group">
+          <a class="plink" href="https://cartpulseecomm.netlify.app/" target="_blank">Live Demo <svg viewBox="0 0 12 12"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></a>
+          <a class="plink git" href="https://github.com/nikitasharma1203" target="_blank">GitHub <svg viewBox="0 0 12 12"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RetailIQ -->
+    <div class="project-row reveal">
+      <div class="proj-idx">03</div>
+      <div class="proj-main">
+        <div class="proj-subtitle">Demand Forecasting · Inventory</div>
+        <div class="proj-title">RetailIQ</div>
+        <div class="proj-desc">Multi-horizon forecasting on 421K+ SKU records (Walmart). SARIMA + Prophet + XGBoost ensemble. PostgreSQL pipeline with RBAC, triggers, stored procedures — modular architecture separates forecasting, optimisation, and reporting for independent updates.</div>
+        <div class="tags">
+          <span class="tag">SARIMA</span><span class="tag">Prophet</span><span class="tag">XGBoost</span><span class="tag">PostgreSQL</span><span class="tag">Streamlit</span><span class="tag">SQLAlchemy</span>
+        </div>
+      </div>
+      <div class="proj-aside">
+        <div class="proj-metric">
+          <span class="proj-metric-n">8.2%</span>
+          <div class="proj-metric-label">MAPE · R²=0.94</div>
+        </div>
+        <div class="proj-link-group">
+          <a class="plink" href="https://retailiqplatform.netlify.app/" target="_blank">Live Demo <svg viewBox="0 0 12 12"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></a>
+          <a class="plink git" href="https://github.com/nikitasharma1203" target="_blank">GitHub <svg viewBox="0 0 12 12"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flight Delay -->
+    <div class="project-row reveal">
+      <div class="proj-idx">04</div>
+      <div class="proj-main">
+        <div class="proj-subtitle">Probabilistic Forecasting · Propagation</div>
+        <div class="proj-title">Flight Delay Intelligence</div>
+        <div class="proj-desc">Cross-airport delay propagation using Granger causality + physical tail-number chain analysis (793K pairs, 74.2% carry-over). QRNN with Pinball Loss generates calibrated prediction intervals. Hourly alert system achieved F1=0.760 — 2.1× over daily baseline.</div>
+        <div class="tags">
+          <span class="tag">SARIMA</span><span class="tag">QRNN</span><span class="tag">PyTorch</span><span class="tag">Granger Causality</span><span class="tag">Streamlit</span><span class="tag">Uncertainty</span>
+        </div>
+      </div>
+      <div class="proj-aside">
+        <div class="proj-metric">
+          <span class="proj-metric-n">23.5%</span>
+          <div class="proj-metric-label">RMSE improvement</div>
+        </div>
+        <div class="proj-link-group">
+          <a class="plink git" href="https://github.com/nikitasharma1203/probabilistic-flight-delay-forecasting" target="_blank">GitHub <svg viewBox="0 0 12 12"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SipSmart -->
+    <div class="project-row reveal" style="border-bottom:none;">
+      <div class="proj-idx">05</div>
+      <div class="proj-main">
+        <div class="proj-subtitle">Behavioural Analytics · Wellness</div>
+        <div class="proj-title">SipSmart AI</div>
+        <div class="proj-desc">Full ML pipeline on caffeine consumption of 320 MSU Baroda students. Regression, SVM classification, KMeans clustering (5 personas), PCA, Isolation Forest, SHAP explainability, recommendation engine, FastAPI backend, Streamlit dashboard — all in one system.</div>
+        <div class="tags">
+          <span class="tag">KMeans</span><span class="tag">SVM</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">FastAPI</span><span class="tag">Isolation Forest</span>
+        </div>
+      </div>
+      <div class="proj-aside">
+        <div class="proj-metric">
+          <span class="proj-metric-n">95%</span>
+          <div class="proj-metric-label">CV accuracy · 5 personas</div>
+        </div>
+        <div class="proj-link-group">
+          <a class="plink git" href="https://github.com/nikitasharma1203" target="_blank">GitHub <svg viewBox="0 0 12 12"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-bar">
+    <span class="sec-label">Technical Skills</span>
+    <span class="sec-bar-right">Primary · Applied · Research</span>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-col">
+      <div class="skill-col-title">Languages & Tools</div>
+      <div class="skill-row"><span>Python (Pandas, NumPy, Scikit-learn)</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>R / statsmodels / pmdarima</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>SQL / PostgreSQL</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>FastAPI / REST APIs</span><span class="skill-tier">applied</span></div>
+      <div class="skill-row"><span>Git / GitHub / Jupyter</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>Firebase / Firestore</span><span class="skill-tier">applied</span></div>
+      <div class="skill-row"><span>Excel / Google Sheets</span><span class="skill-tier">applied</span></div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">ML & Modelling</div>
+      <div class="skill-row"><span>XGBoost / Gradient Boosting</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>Random Forest / Lasso / Ridge</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>SARIMA / ARIMAX / Prophet</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>LSTM / GRU / QRNN (PyTorch)</span><span class="skill-tier">applied</span></div>
+      <div class="skill-row"><span>Isolation Forest / Anomaly Det.</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>SHAP Explainability</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>KMeans / PCA / SVM</span><span class="skill-tier primary">primary</span></div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Statistics & Inference</div>
+      <div class="skill-row"><span>Hypothesis testing (t, chi², F)</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>OLS / Multivariate regression</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>Design of experiments</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>Causal inference / DAGs</span><span class="skill-tier">applied</span></div>
+      <div class="skill-row"><span>STL / ADF / stationarity tests</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>Bland-Altman analysis</span><span class="skill-tier">applied</span></div>
+      <div class="skill-row"><span>Granger causality</span><span class="skill-tier">research</span></div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-col-title">Visualisation & BI</div>
+      <div class="skill-row"><span>Tableau</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>Power BI</span><span class="skill-tier">applied</span></div>
+      <div class="skill-row"><span>Plotly / Recharts</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>Matplotlib / Seaborn</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>Streamlit</span><span class="skill-tier primary">primary</span></div>
+      <div class="skill-row"><span>React / JavaScript</span><span class="skill-tier">applied</span></div>
+      <div class="skill-row"><span>Canva (Design assets)</span><span class="skill-tier">applied</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="sec-bar">
+    <span class="sec-label">Certifications</span>
+    <span class="sec-bar-right">Industry-recognised · 2024 – 2026</span>
+  </div>
+  <div class="cert-list" style="grid-template-columns:1fr 1fr;">
+    <div class="cert-card reveal">
+      <div class="cert-num">I</div>
+      <div class="cert-body">
+        <div class="cert-issuer">IDC × Databricks</div>
+        <div class="cert-name">14-Day AI Challenge</div>
+        <div class="cert-desc">PySpark, Delta Lake, Lakehouse architecture, scalable ETL pipelines, and ML workflow development on the Databricks platform.</div>
+        <div class="cert-year">2026</div>
+      </div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-num">II</div>
+      <div class="cert-body">
+        <div class="cert-issuer">Accenture</div>
+        <div class="cert-name">Digital Web Analytics</div>
+        <div class="cert-desc">Web analytics, digital measurement frameworks, and data-driven decision-making for digital marketing and product teams.</div>
+        <div class="cert-year">2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" style="background:var(--vanilla-dark);">
+  <div class="sec-bar">
+    <span class="sec-label">Research</span>
+    <span class="sec-bar-right">Ongoing · DA-IICT · 2026</span>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--rule);">
+    <div style="padding:3rem 4rem; border-right:1px solid var(--rule);">
+      <div style="font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:300; color:var(--ink); line-height:1.1; margin-bottom:1.5rem;">Digital Consumption &amp;<br><em style="color:var(--cola);">Academic Performance</em></div>
+      <p style="font-family:'EB Garamond',serif; font-size:18px; color:var(--muted); line-height:1.7; max-width:420px;">
+        I am currently working on a longitudinal study examining screen-time reporting behaviour and academic performance among university students.
+        <br><br>
+        The project combines statistical modelling, survey methodology, and causal reasoning. What interests me most is not whether people use their phones more than they should, but whether we are even able to <em style="color:var(--ink);">measure that behaviour accurately</em> in the first place.
+        <br><br>
+        Most existing studies treat "screen time" as a single number. We disaggregate it by app category — social media, education, communication, entertainment — using objective device-exported logs rather than self-report, and test formally whether the relationship between digital consumption and academic performance is bidirectional.
+      </p>
+      <div style="margin-top:2rem; display:flex; gap:1.2rem; flex-wrap:wrap;">
+        <div style="font-size:11px; color:var(--muted);">with <span style="color:var(--ink);">Srishti Lamba</span></div>
+        <div style="font-size:11px; color:var(--rule);">·</div>
+        <div style="font-size:11px; color:var(--muted);">supervised by <span style="color:var(--ink);">Prof. Bhaskar Chaudhury</span></div>
+      </div>
+    </div>
+    <div style="padding:3rem 4rem; display:flex; flex-direction:column; justify-content:center; gap:0;">
+      <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--cola); margin-bottom:1rem;">Study details</div>
+      <div style="display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:0.5px solid var(--rule); font-size:13px; color:var(--muted);">
+        <span>Design</span><span style="color:var(--ink);">3-wave longitudinal · 14 weeks</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:0.5px solid var(--rule); font-size:13px; color:var(--muted);">
+        <span>Sample</span><span style="color:var(--ink);">n = 30–35 · DA-IICT students</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:0.5px solid var(--rule); font-size:13px; color:var(--muted);">
+        <span>Device data</span><span style="color:var(--ink);">StayFree exports · usage time, sessions, unlocks</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:0.5px solid var(--rule); font-size:13px; color:var(--muted);">
+        <span>Classification</span><span style="color:var(--ink);">Play Store metadata · TLD suffix rules · Cohen's κ</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:0.5px solid var(--rule); font-size:13px; color:var(--muted);">
+        <span>Scales</span><span style="color:var(--ink);">BSMAS · PHQ-4 · KSS · AMS</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:0.5px solid var(--rule); font-size:13px; color:var(--muted);">
+        <span>Models</span><span style="color:var(--ink);">LME · Cross-lagged SEM · LCGA · Logistic / Lasso / RF</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:0.5px solid var(--rule); font-size:13px; color:var(--muted);">
+        <span>Tools</span><span style="color:var(--ink);">Python · R (lme4, lavaan) · Mplus</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; padding:0.7rem 0; font-size:13px; color:var(--muted);">
+        <span>Status</span><span style="color:var(--cola); font-size:10px; letter-spacing:1.5px; text-transform:uppercase;">Ongoing · May 2026</span>
+      </div>
+      <div style="margin-top:1.5rem; padding:1rem 1.2rem; background:var(--vanilla); border-left:2px solid var(--cola);">
+        <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--cola); margin-bottom:0.5rem;">Key hypotheses</div>
+        <div style="font-size:12px; color:var(--muted); line-height:1.6;">
+          H9 — Wave-1 passive consumption predicts Wave-3 GPA independently of Wave-1 GPA<br>
+          H10 — Declining GPA predicts increased passive use (avoidance hypothesis)<br>
+          H11 — The relationship is bidirectional: both paths significant simultaneously
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-bar">
+    <span class="sec-label">Experience</span>
+    <span class="sec-bar-right">Internships · Coordination · Research</span>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-row reveal">
+      <div class="exp-meta">
+        <div class="exp-period">March – April 2026</div>
+        <div class="exp-org">ETY Services</div>
+        <div class="exp-loc">Gandhinagar, India</div>
+        <div class="exp-role">Social Media & Content Intern</div>
+      </div>
+      <div class="exp-body">
+        <p>Produced audience-focused communication assets for product campaigns. Designed visual collateral, social copy, and branded content using Canva.</p>
+        <div class="work-images" style="margin-top:1rem; flex-wrap:wrap; gap:0.8rem;">
+          <a href="https://www.canva.com/design/DAHLrkrVQl4/F-z8wV6tTHGdI4nGbcO_vA/edit?ui=e30" target="_blank" style="text-decoration:none;">
+            <div class="work-img-placeholder" style="width:110px; height:72px; cursor:pointer; position:relative;">
+              <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;">
+                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="#C9BAAC" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+                <span style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#C9BAAC; text-align:center;">Social Media<br>Content</span>
+              </div>
+            </div>
+          </a>
+          <a href="https://www.canva.com/design/DAHCJc8uNg8/aUGuI8nbJkoRPRuLu56cNA/edit" target="_blank" style="text-decoration:none;">
+            <div class="work-img-placeholder" style="width:110px; height:72px; cursor:pointer; position:relative;">
+              <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;">
+                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="#C9BAAC" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+                <span style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#C9BAAC; text-align:center;">Pitch Post<br>(Instagram)</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="upload-note" style="color:var(--cola); font-style:normal;">↗ Click to open designs in Canva</div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-meta">
+        <div class="exp-period">Dec 2024 – Feb 2025</div>
+        <div class="exp-org">Bharatmuni Natyagurukulam</div>
+        <div class="exp-loc">Vadodara, India</div>
+        <div class="exp-role">Program Coordinator</div>
+      </div>
+      <div class="exp-body">
+        <p>Designed programme curriculum and coordinated delivery logistics. Managed promotional assets including brochures, visual identity, and web content across the full programme lifecycle.</p>
+        <div class="work-images" style="margin-top:1rem; flex-wrap:wrap; gap:0.8rem;">
+          <a href="https://www.canva.com/design/DAGfQ9Atknk/JmiApUKVSw-COiJW8btZbA/edit" target="_blank" style="text-decoration:none;">
+            <div class="work-img-placeholder" style="width:110px; height:72px; cursor:pointer; position:relative;">
+              <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;">
+                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="#C9BAAC" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+                <span style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#C9BAAC; text-align:center;">Workshop<br>Poster</span>
+              </div>
+            </div>
+          </a>
+          <a href="https://www.canva.com/design/DAGc_HQXpqA/OLJpsf0jKVibCkDViFyUQw/edit" target="_blank" style="text-decoration:none;">
+            <div class="work-img-placeholder" style="width:110px; height:72px; cursor:pointer; position:relative;">
+              <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px;">
+                <svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="#C9BAAC" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+                <span style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#C9BAAC; text-align:center;">Facebook<br>Cover</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="upload-note" style="color:var(--cola); font-style:normal;">↗ Click to open designs in Canva</div>
+      </div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-meta">
+        <div class="exp-period">May – June 2024</div>
+        <div class="exp-org">Team Aashraya</div>
+        <div class="exp-loc">Remote</div>
+        <div class="exp-role">Summer Intern</div>
+      </div>
+      <div class="exp-body">
+        <p>Supported fundraising initiatives for Prashraya Welfare Foundation. Coordinated community outreach activities and contributed to awareness campaigns for welfare programmes.</p>
+      </div>
+    </div>
+
+    <div class="exp-row reveal" style="border-bottom:none;">
+      <div class="exp-meta">
+        <div class="exp-period">May 2026 – Present</div>
+        <div class="exp-org">DA-IICT</div>
+        <div class="exp-loc">Gandhinagar, India</div>
+        <div class="exp-role">Minor Research Project</div>
+      </div>
+      <div class="exp-body">
+        <p>Digital Consumption & Academic Performance — 3-wave longitudinal survey (n=30–35). Applying Bland-Altman analysis to quantify screen time reporting bias. Building a predictive model (OLS, DAG causal inference) to quantify effect on academic performance and mental wellbeing.</p>
+        <div class="tags" style="margin-top:0.8rem;">
+          <span class="tag">Python</span><span class="tag">R</span><span class="tag">OLS</span><span class="tag">DAG</span><span class="tag">Bland-Altman</span><span class="tag">Longitudinal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="sec-bar">
+    <span class="sec-label">Leadership & Achievements</span>
+    <span class="sec-bar-right">Positions · Awards · Publications</span>
+  </div>
+  <div class="leadership-inner">
+    <div class="lead-item reveal">
+      <div class="lead-org">IEEE WIE · DA-IICT</div>
+      <div class="lead-title">Core Member — Women in Engineering</div>
+      <div class="lead-desc">I enjoy being part of communities that make technical spaces feel more welcoming and collaborative. Through IEEE WIE, I have had the opportunity to contribute to student initiatives, events, and conversations that encourage greater participation of women in STEM.</div>
+      <div class="lead-period">2025 – Present</div>
+    </div>
+    <div class="lead-item reveal">
+      <div class="lead-org">Nirmala Convent School</div>
+      <div class="lead-title">Vice Head Girl</div>
+      <div class="lead-desc">Elected via school-wide election with 1,500+ voters. Coordinated institutional initiatives and represented the student body in governance activities.</div>
+      <div class="lead-period">2018 – 2019</div>
+    </div>
+    <div class="lead-item reveal">
+      <div class="lead-org">JEC Publication</div>
+      <div class="lead-title">Published Author</div>
+      <div class="lead-desc">Compiled and contributed to <em>Journey of a Selfless Soul Sacrifice</em> (ISBN-registered anthology). Co-authored multiple collaborative volumes under JEC Publication.</div>
+      <div class="lead-period">Published</div>
+    </div>
+    <div class="lead-item reveal">
+      <div class="lead-org">Euphoria Zyfest 2019 · State Level</div>
+      <div class="lead-title">1st Place — Dance</div>
+      <div class="lead-desc">First position at Euphoria Zyfest inter-school cultural competition hosted by Zydus School for Excellence, Ahmedabad, at state level.</div>
+      <div class="lead-period">2019</div>
+    </div>
+  </div>
+</section>
+
+<!-- DANCE -->
+<section id="dance">
+  <div class="dance-inner">
+    <div class="dance-text">
+      <div class="dance-label">Beyond the Data</div>
+      <div class="dance-heading">Bharata-<br>natyam</div>
+      <div class="dance-body">
+        Before data science became a significant part of my life, Bharatanatyam was.
+        <br><br>
+        I trained for seven years under Tandav Nartan Kalashetra and completed the Visharad examination with an A grade.
+        <br><br>
+        Dance taught me patience long before research did. Repetition, attention to detail, and the willingness to spend hours refining something that most people would never notice — those habits turned out to be surprisingly transferable. The subject changed. The process remained familiar.
+      </div>
+      <div class="dance-credentials">
+        <div class="dance-cred">
+          <span>Institution</span>
+          <strong>Tandav Nartan Kalashetra, Rajkot</strong>
+        </div>
+        <div class="dance-cred">
+          <span>Certification</span>
+          <strong>Visharad — A Grade</strong>
+        </div>
+        <div class="dance-cred">
+          <span>Training</span>
+          <strong>2014 – 2021</strong>
+        </div>
+        <div class="dance-cred">
+          <span>Achievement</span>
+          <strong>1st Place · Euphoria Zyfest 2019 (State)</strong>
+        </div>
+      </div>
+    </div>
+    <div class="dance-right">
+      <div class="dance-right-label">In numbers</div>
+      <div class="dance-fact-grid">
+        <div class="dance-fact">
+          <span class="dance-fact-n">7</span>
+          <div class="dance-fact-desc">Years of classical training</div>
+        </div>
+        <div class="dance-fact">
+          <span class="dance-fact-n">A</span>
+          <div class="dance-fact-desc">Visharad grade awarded</div>
+        </div>
+        <div class="dance-fact">
+          <span class="dance-fact-n">1st</span>
+          <div class="dance-fact-desc">State-level competition</div>
+        </div>
+        <div class="dance-fact">
+          <span class="dance-fact-n">∞</span>
+          <div class="dance-fact-desc">Abhinayas performed</div>
+        </div>
+      </div>
+      <div class="dance-quote">
+        The best training often teaches something other than its intended subject.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY CONTACT -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="contact-phrase">
+      Always happy to discuss <span>research, books, data,</span> or interesting questions.
+    </div>
+    <div class="contact-pills">
+      <a class="contact-pill primary" href="mailto:sniks12034@gmail.com">sniks12034@gmail.com</a>
+      <a class="contact-pill ghost" href="https://github.com/nikitasharma1203" target="_blank">GitHub</a>
+      <a class="contact-pill ghost" href="https://codolio.com/profile/Nikita_12" target="_blank">Codolio</a>
+      <a class="contact-pill ghost" href="https://in.linkedin.com/in/nikita-sharma-8a7548394" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--ink); padding:0.6rem 4rem; display:flex; justify-content:space-between; align-items:center; border-top:0.5px solid #2a1a1a;">
+  <span style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#3a2a2a;">Nikita Sharma · 2026</span>
+  <span style="font-family:'EB Garamond',serif; font-size:14px; font-style:italic; color:#4a3535;">Currently reading. Usually researching. Occasionally dancing.</span>
+</div>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
